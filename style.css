@@ -1,0 +1,107 @@
+/* ================================
+   COLOR + TYPE TOKENS (cinematic dark/red theme)
+   ================================ */
+:root {
+  --bg: #0a0a0a;
+  --bg-alt: #141414;
+  --text: #f5f5f5;
+  --text-muted: #9a9a9a;
+  --accent: #d7263d;       /* primary crimson */
+  --accent-deep: #7a1f2b;  /* muted red for glows/gradients */
+  --border: #262626;
+
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ================================
+   HEADER / NAV
+   ================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav__logo {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+  gap: 28px;
+}
+
+.nav__links a {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+.nav__links a:hover { color: var(--accent); }
+
+/* ================================
+   SECTIONS
+   ================================ */
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px 24px;
+  min-height: 40vh;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: radial-gradient(circle at 20% 30%, var(--accent-deep) 0%, transparent 45%);
+}
+
+.site-footer {
+  text-align: center;
+  padding: 32px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ================================
+   MOBILE
+   ================================ */
+@media (max-width: 640px) {
+  .nav__links { gap: 16px; font-size: 0.85rem; }
+  .section { padding: 60px 20px; }
+}
