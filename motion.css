@@ -1,0 +1,49 @@
+/* Motion layer: loaded by script.js, so style.css stays untouched */
+
+/* Hero: text on the left, welcome video on the right */
+.hero--split { flex-direction: row; align-items: center; gap: 48px; flex-wrap: wrap; }
+.hero--split .hero__content { flex: 1 1 380px; }
+.hero__media { position: relative; flex: 1 1 300px; max-width: 420px; }
+.hero__video {
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block;
+  border-radius: 12px; border: 1px solid var(--border); background: var(--bg-alt);
+}
+.sound-toggle {
+  position: absolute; right: 14px; bottom: 14px; height: 44px; padding: 0 16px;
+  border-radius: 22px; background: rgba(10, 10, 10, 0.8); border: 1px solid var(--accent);
+  color: var(--text); font: inherit; font-size: 0.85rem; cursor: pointer; backdrop-filter: blur(4px);
+}
+.sound-toggle:hover { background: var(--accent); }
+
+/* Hero entrance */
+.hero__content > * { animation: rise 0.8s ease both; }
+.hero__content > *:nth-child(2) { animation-delay: 0.1s; }
+.hero__content > *:nth-child(3) { animation-delay: 0.2s; }
+.hero__content > *:nth-child(4) { animation-delay: 0.3s; }
+.hero__content > *:nth-child(5) { animation-delay: 0.4s; }
+@keyframes rise { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+
+/* Scroll reveal (only active when JS is running) */
+.js .reveal {
+  opacity: 0; translate: 0 28px;
+  transition: opacity 0.7s ease, translate 0.7s ease, transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition-delay: var(--d, 0s), var(--d, 0s), 0s, 0s, 0s;
+}
+.js .reveal.in-view { opacity: 1; translate: 0 0; }
+
+/* Hover lift */
+.skill-card:hover, .project-card:hover, .highlight:hover {
+  transform: translateY(-6px); border-color: var(--accent); box-shadow: 0 12px 28px rgba(215, 38, 61, 0.18);
+}
+
+/* Pulsing timeline dots */
+.timeline__dot { animation: pulse 2s ease-out infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(215, 38, 61, 0.6); } 100% { box-shadow: 0 0 0 14px rgba(215, 38, 61, 0); } }
+
+/* Active nav link */
+.nav__links a.active { color: var(--accent); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .js .reveal { opacity: 1; translate: 0 0; }
+}
