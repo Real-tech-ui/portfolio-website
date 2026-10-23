@@ -121,11 +121,26 @@ footer{text-align:center;padding:30px 16px;color:var(--mut);font-size:12px;lette
 .sk i::after{animation:fill linear both;animation-timeline:view();animation-range:entry 10% cover 40%}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;animation-timeline:none!important;transition:none!important}.type{width:38ch}#rain{display:none}}
+/* photos: hero, about, journey */
+.hero-visual{position:relative;width:min(340px,82vw);margin:auto}
+.hero-photo{margin:0;aspect-ratio:4/5;overflow:hidden;background:var(--bg2);border:2px solid var(--red);border-radius:24px;box-shadow:0 0 36px rgba(255,42,61,.5),0 0 90px rgba(255,42,61,.22)}
+.hero-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 20%}
+.bot.mini{position:absolute;left:-4%;bottom:-6%;width:min(110px,26vw);margin:0}
+.bot.mini .chip{display:none}
+.about-grid{display:grid;grid-template-columns:minmax(220px,.75fr) 1.25fr;gap:clamp(24px,5vw,56px);align-items:center;margin-bottom:34px}
+.about-grid .lead{margin-bottom:0}
+.about-photo{position:relative;margin:0;overflow:hidden;border:1px solid var(--line);border-radius:16px;box-shadow:-10px 10px 0 rgba(255,42,61,.18)}
+.about-photo img{display:block;width:100%;height:auto;aspect-ratio:720/880;object-fit:cover}
+.badge{position:absolute;left:12px;bottom:12px;padding:6px 12px;font-size:12px;letter-spacing:.14em;color:var(--red2);background:rgba(6,6,10,.82);border:1px solid var(--red)}
+@media(max-width:820px){.about-grid{grid-template-columns:1fr}.about-photo{max-width:320px}}
+.tl-photo{margin:14px 0 0;max-width:240px;overflow:hidden;border:1px solid var(--line);border-radius:12px}
+.tl-photo img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 30%}
+.tl-photo figcaption{padding:8px 12px;font-size:12px;color:var(--mut);background:var(--bg2)}
 </style>
 </head>
 <body>
 <div class="bar"></div><div class="grid"></div><div id="rain" aria-hidden="true"></div>
-<nav><b class="mono">AH//SYS</b><div class="mono"><a href="#about">About</a><a href="#skills">Skills</a><a href="#journey">Journey</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div></nav>
+<nav><b class="mono">AH//SYS</b><div class="mono"><a href="#about">About</a><a href="#skills">Skills</a><a href="#journey">Journey</a><a href="#moments">Moments</a><a href="#projects">Projects</a><a href="#contact">Contact</a></div></nav>
 
 <section class="hero" id="top">
   <div>
@@ -135,11 +150,14 @@ footer{text-align:center;padding:30px 16px;color:var(--mut);font-size:12px;lette
     <p class="lead">I moved from insurance and financial services into IT. I bring a ledger-level obsession with accurate records into AI, blockchain and cybersecurity.</p>
     <div class="btns"><a class="btn fill" href="#projects">View projects</a><a class="btn" href="#contact">Get in touch</a></div>
   </div>
-  <div class="bot" aria-hidden="true">
+  <div class="hero-visual">
+    <figure class="hero-photo"><img src="images/hero-portrait.jpg" width="800" height="993" alt="Portrait of Ali Huzaifa, BS IT student and aspiring cybersecurity professional" fetchpriority="high" decoding="async"></figure>
+  <div class="bot mini" aria-hidden="true">
     <div class="ring"></div><div class="ring r2"></div>
     <div class="ant"></div>
     <div class="head"><div class="eye l"></div><div class="eye rr"></div><div class="mouth"><i></i><i></i><i></i><i></i><i></i></div></div>
     <span class="chip mono a">NOVA.AI</span><span class="chip mono b">SECURE://</span><span class="chip mono c">0110 1001</span>
+  </div>
   </div>
 </section>
 
@@ -148,7 +166,10 @@ footer{text-align:center;padding:30px 16px;color:var(--mut);font-size:12px;lette
 <section id="about">
   <span class="tag mono rv">&gt; 01 about</span>
   <h2 class="rv">Records, risk and code.</h2>
-  <p class="lead rv">I’m in the 2nd semester of my BS in Information Technology at Virtual University of Pakistan. My background covers CRM, financial advisory, operations, compliance, documentation and reporting. Today I work with finance software at a manufacturing company, and I’ve taken sessions on AI and blockchain.</p>
+  <div class="about-grid">
+    <figure class="about-photo rv"><img src="images/about-event.jpg" width="720" height="880" alt="A participant working on a laptop at a cybersecurity hackathon workshop, with other students seated behind" loading="lazy" decoding="async"><span class="badge mono">BS IT · Sukkur</span></figure>
+    <p class="lead rv">I’m in the 2nd semester of my BS in Information Technology at Virtual University of Pakistan. My background covers CRM, financial advisory, operations, compliance, documentation and reporting. Today I work with finance software at a manufacturing company, and I’ve taken sessions on AI and blockchain.</p>
+  </div>
   <div class="cards">
     <div class="card rv"><span class="ico mono">[ 01 ]</span><h3>Finance roots</h3><p>Years of working with records taught me that a wrong entry travels into reports and decisions.</p></div>
     <div class="card rv"><span class="ico mono">[ 02 ]</span><h3>Security mindset</h3><p>Know who touched the data, and be able to prove it. That is the instinct I’m taking into cybersecurity.</p></div>
@@ -178,7 +199,7 @@ footer{text-align:center;padding:30px 16px;color:var(--mut);font-size:12px;lette
   <span class="tag mono rv">&gt; 03 cyber journey</span>
   <h2 class="rv">From ledgers to terminals.</h2>
   <ul class="tl">
-    <li class="rv"><small class="mono">Phase 1</small><h3>Insurance &amp; financial services</h3><p>CRM, advisory, operations, compliance, documentation and reporting in the Takaful sector.</p></li>
+    <li class="rv"><small class="mono">Phase 1</small><h3>Insurance &amp; financial services</h3><p>CRM, advisory, operations, compliance, documentation and reporting in the Takaful sector.</p><figure class="tl-photo"><img src="images/finance-roots.jpg" width="700" height="870" alt="Ali Huzaifa at an office desk with files and a desk phone" loading="lazy" decoding="async"><figcaption class="mono">Finance &amp; operations roots</figcaption></figure></li>
     <li class="rv"><small class="mono">Phase 2</small><h3>BS in Information Technology</h3><p>Started the degree at Virtual University of Pakistan and began writing real code.</p></li>
     <li class="rv"><small class="mono">Phase 3</small><h3>AI, blockchain &amp; security sessions</h3><p>Attended sessions on AI and blockchain, and a cybersecurity workshop.</p></li>
     <li class="rv"><small class="mono">Now</small><h3>Building and shipping</h3><p>Finance software by day, projects like NOVA by night.</p></li>
@@ -186,7 +207,7 @@ footer{text-align:center;padding:30px 16px;color:var(--mut);font-size:12px;lette
 </section>
 
 <section id="projects">
-  <span class="tag mono rv">&gt; 04 projects</span>
+  <span class="tag mono rv">&gt; 05 projects</span>
   <h2 class="rv">Built and planned.</h2>
   <div class="cards">
     <div class="card rv"><span class="ico mono">SHIPPED</span><h3>NOVA</h3><p>A desktop AI assistant built in Electron.js with 18 expert modes and Urdu speech recognition.</p><span class="pill mono">Electron.js</span><span class="pill mono">AI</span></div>
@@ -196,7 +217,7 @@ footer{text-align:center;padding:30px 16px;color:var(--mut);font-size:12px;lette
 </section>
 
 <section class="cta" id="contact">
-  <span class="tag mono rv">&gt; 05 contact</span>
+  <span class="tag mono rv">&gt; 06 contact</span>
   <h2 class="glitch rv" data-text="LET’S BUILD">LET’S BUILD</h2>
   <p class="lead rv" style="margin-inline:auto">Open to IT internships, fintech and cybersecurity conversations.</p>
   <div class="btns rv"><a class="btn fill" href="mailto:officialalihuzaifa@gmail.com">Email me</a><a class="btn" href="https://www.linkedin.com/in/alihuzaifa" target="_blank" rel="noopener">LinkedIn</a><a class="btn" href="https://github.com/Real-tech-ui" target="_blank" rel="noopener">GitHub</a></div>
